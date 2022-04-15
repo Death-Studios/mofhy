@@ -5,7 +5,7 @@
 		}
 	}
 </style>
-<?php $AccountInfo = mysqli_fetch_assoc($sql); ?>
+<?php $AccountInfo = $fetch; ?>
 <div class="page-wrapper">
 	<div class="container-xl">
 		<div class="page-header">
