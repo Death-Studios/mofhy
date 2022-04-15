@@ -37,7 +37,9 @@ $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `hosting_clients` (
   `hosting_client_date` VARCHAR(30) NOT NULL,
   `hosting_client_status` INT(1) NOT NULL,
   `hosting_client_password` VARCHAR(64) NOT NULL,
-  `hosting_client_verification` VARCHAR(255) NOT NULL
+  `hosting_client_verification` VARCHAR(255) NOT NULL,
+  `hosting_client_cookie` VARCHAR(32) NOT NULL
+
 )');
 $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `hosting_domain_extensions` (
   `extension_id` INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
