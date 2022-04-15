@@ -2,6 +2,7 @@
 if ($AccountInfo['account_status'] == '0' || $AccountInfo['account_status'] == '2') {
     header('Location: viewAccount?account_id=' . $_GET['account_id'] . '');
 }
+$account_id = $_GET['account_id'];
 ?>
 <div class="page-wrapper">
     <div class="container-xl">
@@ -11,7 +12,7 @@ if ($AccountInfo['account_status'] == '0' || $AccountInfo['account_status'] == '
             <div class="page-body">
                 <h1 class="page-title">
                     Edit <?php
-                            echo $_GET['account_id'];
+                            echo $account_id;
                             ?> (<?php
                                 echo $AccountInfo['account_label'];
                                 ?>) </h1>
