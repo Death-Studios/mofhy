@@ -46,6 +46,7 @@ if ($result = $stmt->get_result()) {
 						<div class="card-body">
 							<div class="row row-0">
 								<div class="col-md-3">
+									<?php function get_gravatar($email,$s=80,$d='mp',$r='g',$img=false,$atts=array()){$url='https://www.gravatar.com/avatar/';$url.=md5(strtolower(trim($email)));$url.="?s=$s&d=$d&r=$r";if($img){$url='<img src="'.$url.'"';foreach($atts as $key=>$val)$url.=' '.$key.'="'.$val.'"';$url.=' />';}return $url;} ?>
 									<img src="<?php echo get_gravatar($ClientInfo['hosting_client_email'], 190); ?>" alt="<?php echo $ClientInfo['hosting_client_fname'] . " " . $ClientInfo['hosting_client_lname'] . "'s Avatar"; ?>">
 								</div>
 								<div class="col-md-9">
