@@ -1,8 +1,9 @@
 <?php
-$AccountInfo = mysqli_fetch_assoc($sql);
+$AccountInfo = $fetch;
 if ($AccountInfo['account_status'] !== '1') {
     header('Location: viewAccount.php?account_id=' . $_GET['account_id'] . '');
 }
+$account_id = htmlspecialchars($_GET['account_id']);
 ?>
 <div class="page-wrapper">
     <div class="container-xl">
@@ -11,11 +12,8 @@ if ($AccountInfo['account_status'] !== '1') {
             </div>
             <div class="page-body">
                 <h1 class="page-title">
-                    Edit <?php
-                            echo $_GET['account_id'];
-                            ?> (<?php
-                                echo $AccountInfo['account_label'];
-                                ?>) </h1>
+                    Edit <?php echo $account_id;?> (<?php echo $AccountInfo['account_label']; ?>) 
+                </h1>
                 <div class="page-header mt-0">
                     <?php
                     if (isset($_SESSION['message'])) {
