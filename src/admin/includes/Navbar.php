@@ -4,26 +4,27 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<h1 class="navbar-brand d-none-navbar-horizontal pe-0 pe-md-3" style="filter: brightness(0) invert(1);">
-			<a href="<?php echo "https://" . $AreaInfo['area_url'] . "/admin"; ?>">
+			<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin"; ?>">
 				<img src="https://assets.mofhy.tk/img/logo.svg" width="240" height="40" alt="MofhyLite" class="navbar-brand-image">
 			</a>
 		</h1>
-		<?php
-		function get_gravatar( $email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array() ) {
-			$url = 'https://www.gravatar.com/avatar/';
-			$url .= md5( strtolower( trim( $email ) ) );
-			$url .= "?s=$s&d=$d&r=$r";
-			if ( $img ) {
-				$url = '<img src="' . $url . '"';
-				foreach ( $atts as $key => $val )
-					$url .= ' ' . $key . '="' . $val . '"';
-				$url .= ' />';
-			}
-			return $url;
-		}
-		?>
 		<div class="navbar-nav flex-row order-md-last">
 			<div class="nav-item dropdown">
+				<?php
+				function get_gravatar($email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array())
+				{
+					$url = 'https://www.gravatar.com/avatar/';
+					$url .= md5(strtolower(trim($email)));
+					$url .= "?s=$s&d=$d&r=$r";
+					if ($img) {
+						$url = '<img src="' . $url . '"';
+						foreach ($atts as $key => $val)
+							$url .= ' ' . $key . '="' . $val . '"';
+						$url .= ' />';
+					}
+					return $url;
+				}
+				?>
 				<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
 					<span class="avatar avatar-sm rounded-1" style="background-image: url(<?php echo get_gravatar($AdminInfo['admin_email']); ?>)"></span>
 					<div class="d-none d-xl-block ps-2">
@@ -32,18 +33,10 @@
 					</div>
 				</a>
 				<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-					<a class="dropdown-item" href="<?php if (isset($_SERVER['HTTPS'])) {
-										echo "https://" . $AreaInfo['area_url'] . "/admin/profile";
-									} else {
-										echo "http://" . $AreaInfo['area_url'] . "/admin/profile";
-									} ?>">
+					<a class="dropdown-item" href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/profile"; ?>">
 						Profile
 					</a>
-					<a class="dropdown-item" href="<?php if (isset($_SERVER['HTTPS'])) {
-										echo "https://" . $AreaInfo['area_url'] . "/admin/logout";
-									} else {
-										echo "http://" . $AreaInfo['area_url'] . "/admin/logout";
-									} ?>">
+					<a class="dropdown-item" href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/logout"; ?>">
 						Sign Out
 					</a>
 				</div>
@@ -57,11 +50,7 @@
 			<div class="container-xl">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a href="<?php if (isset($_SERVER['HTTPS'])) {
-										echo "https://" . $AreaInfo['area_url'] . "/admin";
-									} else {
-										echo "http://" . $AreaInfo['area_url'] . "/admin";
-									} ?>" class="nav-link">
+						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin"; ?>" class="nav-link">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -76,11 +65,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php if (isset($_SERVER['HTTPS'])) {
-										echo "https://" . $AreaInfo['area_url'] . "/admin/clients";
-									} else {
-										echo "http://" . $AreaInfo['area_url'] . "/admin/clients";
-									} ?>" class="nav-link ">
+						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/clients"; ?>" class="nav-link ">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -96,11 +81,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php if (isset($_SERVER['HTTPS'])) {
-										echo "https://" . $AreaInfo['area_url'] . "/admin/accounts";
-									} else {
-										echo "http://" . $AreaInfo['area_url'] . "/admin/accounts";
-									} ?>" class="nav-link">
+						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/accounts"; ?>" class="nav-link">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-server" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -116,11 +97,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php if (isset($_SERVER['HTTPS'])) {
-										echo "https://" . $AreaInfo['area_url'] . "/admin/sslCertificates";
-									} else {
-										echo "http://" . $AreaInfo['area_url'] . "/admin/sslCertificates";
-									} ?>" class="nav-link ">
+						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/sslCertificates"; ?>" class="nav-link ">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shield-lock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -135,11 +112,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php if (isset($_SERVER['HTTPS'])) {
-										echo "https://" . $AreaInfo['area_url'] . "/admin/apiSettings";
-									} else {
-										echo "http://" . $AreaInfo['area_url'] . "/admin/apiSettings";
-									} ?>" class="nav-link ">
+						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/apiSettings"; ?>" class="nav-link ">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-api-app" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -155,11 +128,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php if (isset($_SERVER['HTTPS'])) {
-										echo "https://" . $AreaInfo['area_url'] . "/admin/extensions";
-									} else {
-										echo "http://" . $AreaInfo['area_url'] . "/admin/extensions";
-									} ?>" class="nav-link ">
+						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/extensions"; ?>" class="nav-link ">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-subtask" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
