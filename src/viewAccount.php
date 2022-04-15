@@ -9,10 +9,16 @@ if(isset($_GET['account_id'])){
 	require_once __DIR__.'/handler/HostingHandler.php';
 	require_once __DIR__.'/modules/autoload.php';
 	require_once __DIR__.'/modules/UserInfo/UserInfo.php';
-	require_once __DIR__.'/includes/Navbar.php';
-	require_once __DIR__.'/includes/Sidebar.php';
-	$sql = mysqli_query($connect,"SELECT * FROM `hosting_account` WHERE `account_username`='".$_GET['account_id']."' AND `account_for`='".$ClientInfo['hosting_client_key']."'");
-	if(mysqli_num_rows($sql)>0){
+	$account_id = htmlspecialchars($_GET['account_id']);
+	$sql = "SELECT * FROM `hosting_account` WHERE `account_username`= ? AND `account_for`= ?";
+	$stmt = $connect->prepare($sql);
+	$stmt -> bind_param("ss", $account_id, $ClientInfo['hosting_client_key']);
+	$stmt -> execute();
+	$result = $stmt->get_result();
+	$rows = $result->num_rows;
+	$stmt -> close();
+	if($rows>0){
+		require_once __DIR__.'/includes/Navbar.php';
 		include __DIR__.'/template/ViewAccount.php';
 		require_once __DIR__.'/includes/Footer.php';
 	}
