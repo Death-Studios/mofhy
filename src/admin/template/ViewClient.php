@@ -62,13 +62,31 @@ if ($result = $stmt->get_result()) {
 												</tr>
 												<tr>
 													<td><strong>Hosting Accounts</strong></td>
-													<td><?php $sql = mysqli_query($connect, "SELECT `account_id` FROM `hosting_account` WHERE `account_for` = '" . $ClientInfo['hosting_client_key'] . "'");
-														echo mysqli_num_rows($sql); ?></td>
+													<td>
+														<?php 
+														$sql = "SELECT `account_id` FROM `hosting_account` WHERE `account_for` = ?";
+														$stmt = $connect->prepare($sql);
+														$stmt -> bind_param("s", $ClientInfo['hosting_client_key']);
+														$stmt -> execute();
+														$rows = $stmt->get_result()->num_rows;
+														$stmt -> close();
+														echo $rows;
+														?>
+													</td>
 												</tr>
 												<tr>
 													<td><strong>SSL Certificates</strong></td>
-													<td><?php $sql = mysqli_query($connect, "SELECT `ssl_id` FROM `hosting_ssl` WHERE `ssl_for` = '" . $ClientInfo['hosting_client_key'] . "'");
-														echo mysqli_num_rows($sql); ?></td>
+													<td>
+														<?php 
+														$sql = mysqli_query($connect, "SELECT `ssl_id` FROM `hosting_ssl` WHERE `ssl_for` = ?");
+														$stmt = $connect->prepare($sql);
+														$stmt -> bind_param("s", $ClientInfo['hosting_client_key']);
+														$stmt -> execute();
+														$sslrows = $stmt->get_result()->num_rows;
+														$stmt -> close();
+														echo $sslrows;
+														?>
+													</td>
 												</tr>
 												<tr>
 													<td><strong>Registration Date</strong></td>
