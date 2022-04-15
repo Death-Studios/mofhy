@@ -21,7 +21,7 @@
 				} ?>
 				<div class="mb-3">
 					<p>Enter your new password below to update your client area password and then you can login.</p>
-					<input type="hidden" name="email" value="<?php echo $_GET['email']; ?>">
+					<input type="hidden" name="email" value="<?php $emal = htmlspecialchars($_GET['email']); echo $email; ?>">
 				</div>
 				<div class="mb-2">
 					<label class="form-label required">
