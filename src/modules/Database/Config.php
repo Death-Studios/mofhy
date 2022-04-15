@@ -1,8 +1,8 @@
 <?php
 $DataBase = array(
-	"hostname" => "localhost",
-	"username" => "root",
+	"hostname" => "",
+	"username" => "",
 	"password" => "",
-	"name" => "ci4"
+	"name" => ""
 );
 ?>
