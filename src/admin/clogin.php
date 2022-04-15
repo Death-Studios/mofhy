@@ -8,7 +8,6 @@ if(isset($_GET['client_id'])){
 	require_once __DIR__.'/../handler/HostingHandler.php';
 	require_once __DIR__.'/../modules/UserInfo/UserInfo.php';
 	require_once __DIR__.'/includes/Navbar.php';
-		$sql = mysqli_query($connect,"SELECT * FROM `hosting_clients` WHERE `hosting_client_key`='".$_GET['client_id']."'");
 	include __DIR__.'/function/cLogin.php';
 	require_once __DIR__.'/includes/Footer.php';
 }
