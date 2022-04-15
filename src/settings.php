@@ -14,6 +14,7 @@ if(isset($_GET['account_id'])){
 	$stmt -> bind_param("ss", $account_id, $ClientInfo['hosting_client_key']);
 	$stmt -> execute();
 	$rows = $stmt->get_result()->num_rows;
+	$fetch = $stmt->get_result()->fetch_assoc();
 	$stmt -> close();
 	if($rows>0){
 		require_once __DIR__.'/includes/Navbar.php';
