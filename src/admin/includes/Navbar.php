@@ -33,10 +33,10 @@
 					</div>
 				</a>
 				<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-					<a class="dropdown-item" href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/profile"; ?>">
+					<a class="dropdown-item" href="profile">
 						Profile
 					</a>
-					<a class="dropdown-item" href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/logout"; ?>">
+					<a class="dropdown-item" href="logout">
 						Sign Out
 					</a>
 				</div>
@@ -65,7 +65,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/clients"; ?>" class="nav-link ">
+						<a href="clients" class="nav-link ">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -81,7 +81,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/accounts"; ?>" class="nav-link">
+						<a href="accounts" class="nav-link">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-server" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -97,7 +97,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/sslCertificates"; ?>" class="nav-link ">
+						<a href="sslCertificates" class="nav-link ">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shield-lock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -112,7 +112,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/apiSettings"; ?>" class="nav-link ">
+						<a href="apiSettings" class="nav-link ">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-api-app" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -128,7 +128,7 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a href="<?php echo "https://" . $_SERVER['HTTP_HOST'] . "/admin/extensions"; ?>" class="nav-link ">
+						<a href="extensions" class="nav-link ">
 							<span class="nav-link-icon d-md-none d-lg-inline-block">
 								<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-subtask" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
 									<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
