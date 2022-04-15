@@ -1,12 +1,13 @@
 <?php
 if(isset($_COOKIE['LEFSESS'])){
-	$cookie = hex2bin($_COOKIE['LEFSESS']);
-	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_email`= ?";
+	$string = $_COOKIE['LEFSESS'];
+	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_cookie`= ?";
 	$stmt = $connect->prepare($sql);
-	$stmt -> bind_param("s", $cookie);
+	$stmt -> bind_param("s", $string);
 	$stmt -> execute();
-	$rows = $stmt->get_result()->num_rows;
-	$fetch = $stmt->get_result()->fetch_assoc();
+	$result = $stmt->get_result();
+	$rows = $result->num_rows;
+	$fetch = $result->fetch_assoc();
 	$stmt -> close();
 	if($rows>0){
 		$ClientInfo = $fetch;
@@ -14,11 +15,11 @@ if(isset($_COOKIE['LEFSESS'])){
 	else{
 		setcookie('LEFSESS',NULL,-1,'/');
 		$_SESSION['message'] = '<div class="alert alert-danger">Your session has been expired.</div>';
-		header('location: login.php');
+		header('location: login');
 	}
 }
 else{
 	$_SESSION['message'] = '<div class="alert alert-danger">Your session has been expired.</div>';
-	header('location: login.php');
+	header('location: login');
 }
 ?>
