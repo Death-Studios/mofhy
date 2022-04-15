@@ -24,7 +24,6 @@ if (isset($_SESSION['LEASESS']))
 }
 else
 {
-    $_SESSION['message'] = '<div class="alert alert-danger">Your previous session has expired.</div>';
     header('location: login');
     exit;
 }
