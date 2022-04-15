@@ -2,7 +2,7 @@
 if ($AccountInfo['account_status'] == '0' || $AccountInfo['account_status'] == '2') {
     header('Location: viewAccount?account_id=' . $_GET['account_id'] . '');
 }
-$account_id = $_GET['account_id'];
+$account_id = htmlspecialchars($_GET['account_id']);
 ?>
 <div class="page-wrapper">
     <div class="container-xl">
@@ -10,12 +10,9 @@ $account_id = $_GET['account_id'];
             <div class="row">
             </div>
             <div class="page-body">
-                <h1 class="page-title">
-                    Edit <?php
-                            echo $account_id;
-                            ?> (<?php
-                                echo $AccountInfo['account_label'];
-                                ?>) </h1>
+		    <h1 class="page-title">
+			Edit <?php echo $account_id; ?> (<?php echo $AccountInfo['account_label']; ?>)
+		    </h1>
                 <div class="page-header mt-0">
                     <?php
                     if (isset($_SESSION['message'])) {
