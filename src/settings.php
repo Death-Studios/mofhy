@@ -8,8 +8,14 @@ if(isset($_GET['account_id'])){
 	require_once __DIR__.'/handler/ValidationHandler.php';
 	require_once __DIR__.'/handler/HostingHandler.php';
 	require_once __DIR__.'/modules/UserInfo/UserInfo.php';
-	$sql = mysqli_query($connect,"SELECT * FROM `hosting_account` WHERE `account_username`='".$_GET['account_id']."' AND `account_for`='".$ClientInfo['hosting_client_key']."'");
-	if(mysqli_num_rows($sql)>0){
+	$account_id = htmlspecialchars($_GET['account_id']);
+	$sql = "SELECT * FROM `hosting_account` WHERE `account_username`= ? AND `account_for`= ?";
+	$stmt = $connect->prepare($sql);
+	$stmt -> bind_param("ss", $account_id, $ClientInfo['hosting_client_key']);
+	$stmt -> execute();
+	$rows = $stmt->get_result()->num_rows;
+	$stmt -> close();
+	if($rows>0){
 		require_once __DIR__.'/includes/Navbar.php';
 		include __DIR__.'/template/AccountSettings.php';
 		require_once __DIR__.'/includes/Footer.php';
