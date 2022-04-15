@@ -45,5 +45,5 @@ This project is licensed under the **GPL-3.0 License** License - see the `LICENS
 * [RoyalityFree Template](https://royalityfree.com)
 * [InfinityFree Template](https://infinityfree.net)
 
-Code Scanning To Find Vulnerabilities And Security Hotspots By SonarCloud 🙏
+Code Scanning To Find Vulnerabilities And Security Hotspots By SonarCloud 🙏  
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=MyOwnFreeHostCommunity_Mofhy)
