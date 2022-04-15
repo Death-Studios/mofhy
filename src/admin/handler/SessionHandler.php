@@ -6,9 +6,10 @@ if (isset($_SESSION['LEASESS']))
     $stmt = $connect->prepare($sql);
 	$stmt -> bind_param("s", $cookie);
 	$stmt -> execute();
-	$rows = $stmt->get_result()->num_rows;
-	$fetch = $stmt->get_result()->fetch_assoc();
-	$stmt -> close();
+    $result = $stmt->get_result();
+	$rows = $result->num_rows;
+    $fetch = $result->fetch_assoc();
+    $stmt -> close();
     if ($rows>0)
     {
         $AdminInfo = $fetch;
