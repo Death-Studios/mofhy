@@ -4,14 +4,24 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<h1 class="navbar-brand d-none-navbar-horizontal pe-0 pe-md-3" style="filter: brightness(0) invert(1);">
-			<a href="<?php if (isset($_SERVER['HTTPS'])) {
-							echo "https://" . $AreaInfo['area_url'] . "/admin";
-						} else {
-							echo "http://" . $AreaInfo['area_url'] . "/admin";
-						} ?>">
+			<a href="<?php echo "https://" . $AreaInfo['area_url'] . "/admin"; ?>">
 				<img src="https://assets.mofhy.tk/img/logo.svg" width="240" height="40" alt="MofhyLite" class="navbar-brand-image">
 			</a>
 		</h1>
+		<?php
+		function get_gravatar( $email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array() ) {
+			$url = 'https://www.gravatar.com/avatar/';
+			$url .= md5( strtolower( trim( $email ) ) );
+			$url .= "?s=$s&d=$d&r=$r";
+			if ( $img ) {
+				$url = '<img src="' . $url . '"';
+				foreach ( $atts as $key => $val )
+					$url .= ' ' . $key . '="' . $val . '"';
+				$url .= ' />';
+			}
+			return $url;
+		}
+		?>
 		<div class="navbar-nav flex-row order-md-last">
 			<div class="nav-item dropdown">
 				<a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
