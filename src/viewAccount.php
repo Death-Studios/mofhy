@@ -16,6 +16,7 @@ if(isset($_GET['account_id'])){
 	$stmt -> execute();
 	$result = $stmt->get_result();
 	$rows = $result->num_rows;
+	$fetch = $result->fetch_assoc();
 	$stmt -> close();
 	if($rows>0){
 		require_once __DIR__.'/includes/Navbar.php';
