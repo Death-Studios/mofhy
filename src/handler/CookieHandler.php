@@ -1,8 +1,15 @@
 <?php
 if(isset($_COOKIE['LEFSESS'])){
-	$sql = mysqli_query($connect,"SELECT * FROM `hosting_clients` WHERE `hosting_client_email`='".hex2bin($_COOKIE['LEFSESS'])."'");
-	if(mysqli_num_rows($sql)>0){
-		$ClientInfo = mysqli_fetch_Assoc($sql);
+	$cookie = hex2bin($_COOKIE['LEFSESS']);
+	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_email`= ?";
+	$stmt = $connect->prepare($sql);
+	$stmt -> bind_param("s", $cookie);
+	$stmt -> execute();
+	$rows = $stmt->get_result()->num_rows;
+	$fetch = $stmt->get_result()->fetch_assoc();
+	$stmt -> close();
+	if($rows>0){
+		$ClientInfo = $fetch;
 	}
 	else{
 		setcookie('LEFSESS',NULL,-1,'/');
