@@ -19,7 +19,7 @@
 					echo $_SESSION['message'];
 					unset($_SESSION['message']);
 				}
-				$email = $_GET['email'];
+				$email = htmlspecialchars($_GET['email']);
 				?>
 				<div class="mb-3">
 					<p>Enter your new password below to update your client area password and then you can login.</p>
