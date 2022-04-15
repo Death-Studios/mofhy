@@ -1,21 +1,30 @@
 <?php
+require __DIR__.'/Connect.php';
 if(isset($_COOKIE['LEFSESS'])){
-	setcookie('LEFSESS','NULL',-1,'/');
-	$_SESSION['message'] = '<div class="alert alert-success" role="alert">
-									  <button class="close" data-dismiss="alert" type="button" aria-label="Close">
-									    <span aria-hidden="true">&times;</span>
-									  </button>
-									  Logged out <b>successfully!</b>
-									</div>';
-	header('location: login.php');
+	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_cookie` = ?";
+	$stmt = $connect->prepare($sql);
+	$stmt -> bind_param("s", $_COOKIE['LEFSESS']);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$fetch = $result->fetch_assoc();
+	$stmt -> close();
+	$null = NULL;
+	$sql = "UPDATE `hosting_clients` SET `hosting_client_cookie` = ? WHERE `hosting_client_email` = ?";
+	$stmt = $connect->prepare($sql);
+	$stmt -> bind_param("ss", $null, $fetch['hosting_client_email']);
+	$trigger = $stmt->execute();
+	$stmt -> close();
+	if($trigger !== false){
+		setcookie('LEFSESS', 'NULL' , -1, '/');
+		$_SESSION['message'] = '<div class="alert alert-success" role="alert">Your session has been cleared!</div>';
+		header('location: login');
+	} else{
+		$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Something went wrong!</div>';
+		header('location: login');
+	}
 }
 else{
-	$_SESSION['message'] = '<div class="alert alert-danger" role="alert">
-									  <button class="close" data-dismiss="alert" type="button" aria-label="Close">
-									    <span aria-hidden="true">&times;</span>
-									  </button>
-									  Login to <b>continue!</b>
-									</div>';
-	header('location: login.php');
+	$_SESSION['message'] = '<div class="alert alert-danger" role="alert">Please login to continue to the dashboard.</div>';
+	header('location: login');
 }
 ?>
