@@ -21,6 +21,7 @@
 					<div class="card" id="languageCard">
 						<div class="card-header">
 							<h3 class="card-title">MOFH Settings</h3>
+							<a href="https://forum.mofhy.xyz/t/how-to-setup-myownfreehost-api-credentials/15" class="ms-auto" target="_blank" rel="dofollow">Reference <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path> <line x1="10" y1="14" x2="20" y2="4"></line> <polyline points="15 4 20 4 20 9"></polyline></svg></a>
 						</div>
 						<div class="card-body">
 							<form action="function/MOFHSettings" method="POST">
@@ -92,12 +93,12 @@
 							<form action="function/SMTPSettings" method="post">
 								<?php
 								$smtp_key = 'SMTP';
-								$stmt1 = $connect->prepare("SELECT * FROM `hosting_smtp` WHERE `smtp_key`= ?");
-								$stmt1->bind_param('s', $smtp_key);
-								$stmt1->execute();
-								$result = $stmt1->get_result();
+								$stmt = $connect->prepare("SELECT * FROM `hosting_smtp` WHERE `smtp_key`= ?");
+								$stmt->bind_param('s', $smtp_key);
+								$stmt->execute();
+								$result = $stmt->get_result();
 								$SMTPInfo = $result->fetch_assoc();
-								$stmt1->close();
+								$stmt->close();
 								?>
 								<div class="row">
 									<div class="col-md-6">
@@ -144,17 +145,18 @@
 					<div class="card" id="emailCard">
 						<div class="card-header">
 							<h3 class="card-title">GoGetSSL Settings</h3>
+							<a href="https://forum.mofhy.xyz/t/how-to-setup-gogetssl-api-credentials/16" class="ms-auto" target="_blank" rel="dofollow">Reference <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path> <line x1="10" y1="14" x2="20" y2="4"></line> <polyline points="15 4 20 4 20 9"></polyline></svg></a>
 						</div>
 						<div class="card-body">
 							<form action="function/SSLSettings" method="post">
 								<?php
 								$api_key = 'FREESSL';
-								$stmt2 = $connect->prepare("SELECT * FROM `hosting_ssl_api` WHERE `api_key`= ?");
-								$stmt2->bind_param('s', $api_key);
-								$stmt2->execute();
-								$result = $stmt2->get_result();
+								$stmt = $connect->prepare("SELECT * FROM `hosting_ssl_api` WHERE `api_key`= ?");
+								$stmt->bind_param('s', $api_key);
+								$stmt->execute();
+								$result = $stmt->get_result();
 								$SSLApi = $result->fetch_assoc();
-								$stmt2->close();
+								$stmt->close();
 								?>
 								<div class="row">
 									<div class="col-md-6">
