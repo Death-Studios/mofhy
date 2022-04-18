@@ -14,6 +14,7 @@ Mofhy is an open-source MyOwnFreeHost client area for managing accounts and ssl 
 * [x] Standalone Setup
 * [x] SMTP Support
 * [x] Extra Tools For Clients
+* [x] Dark/Light Mode Switch
 
 ## Requirements
 
@@ -28,7 +29,6 @@ Mofhy is an open-source MyOwnFreeHost client area for managing accounts and ssl 
 Please refer to the [official installation guide]() which covers all necessary inputs and explanations.
 
 ## Todo
-* [ ] Dark/Light Mode Switch ![](https://img.shields.io/badge/Status-Progress-orange)
 * [ ] Hosting Account Email Templates ![](https://img.shields.io/badge/Status-Pending-red)
 * [ ] Update Doc Links ![](https://img.shields.io/badge/Status-Progress-orange)
 ## Authors
