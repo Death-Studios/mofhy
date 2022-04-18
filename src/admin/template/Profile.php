@@ -31,7 +31,7 @@
 											</tr>
 											<tr>
 												<td><strong>Clientarea URL</strong></td>
-												<td><?php if(isset($_SERVER['HTTPS'])){echo "https://".$AreaInfo['area_url'];} else{echo "http://".$AreaInfo['area_url'];} ?></td>
+												<td><?php echo "https://".$AreaInfo['area_url']; ?></td>
 											</tr>
 											<tr>
 												<td><strong>Clientarea Email</strong></td>
