@@ -1,28 +1,3 @@
-<?php
-$hosting_client_key = mysqli_real_escape_string($connect, $_GET['client_id']);
-$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_key`= ?";
-$stmt = $connect->prepare($sql);
-$stmt->bind_param("s", $hosting_client_key);
-$stmt->execute();
-if ($result = $stmt->get_result()) {
-	$ClientInfo = $result->fetch_assoc();
-} else { ?>
-	<div class="page page-center">
-		<div class="container-tight py-4">
-			<div class="empty">
-				<div class="empty-header">404</div>
-				<p class="empty-title">That's an error...</p>
-				<p class="empty-subtitle text-muted">
-				The requested page or resource could not be found.
-				</p>
-			</div>
-		</div>
-	</div>
-	</div>
-	<script src="https://assets.mofhy.tk/js/tabler.min.js"></script>
-	</body>
-	</html>
-<?php exit; } ?>
 <div class="page-wrapper">
 	<div class="container-xl">
 		<div class="page-header">
@@ -46,7 +21,6 @@ if ($result = $stmt->get_result()) {
 						<div class="card-body">
 							<div class="row row-0">
 								<div class="col-md-3">
-									<?php function get_gravatar($email,$s=80,$d='mp',$r='g',$img=false,$atts=array()){$url='https://www.gravatar.com/avatar/';$url.=md5(strtolower(trim($email)));$url.="?s=$s&d=$d&r=$r";if($img){$url='<img src="'.$url.'"';foreach($atts as $key=>$val)$url.=' '.$key.'="'.$val.'"';$url.=' />';}return $url;} ?>
 									<img src="<?php echo get_gravatar($ClientInfo['hosting_client_email'], 190); ?>" alt="<?php echo $ClientInfo['hosting_client_fname'] . " " . $ClientInfo['hosting_client_lname'] . "'s Avatar"; ?>">
 								</div>
 								<div class="col-md-9">
