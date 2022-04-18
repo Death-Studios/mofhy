@@ -70,7 +70,8 @@ $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `hosting_admin` (
   `admin_lname` varchar(30) NOT NULL,
   `admin_email` varchar(50) NOT NULL,
   `admin_key` VARCHAR(8) NOT NULL,
-  `admin_password` varchar(70) NOT NULL
+  `admin_password` varchar(70) NOT NULL,
+  `admin_cookie` varchar(64) NOT NULL
 )');
 $sql = mysqli_query($connect,"INSERT INTO `hosting_account_api`(`api_key`, `api_username`, `api_password`, `api_cpanel_url`, `api_server_ip`, `api_ns_1`, `api_ns_2`, `api_package`) VALUES ('MOFHAPI','MOFH API Username','MOFH API Password','cpanel.example.com','185.27.134.46','ns1.byet.org','ns2.byet.org','freehosting')");
 $sql = mysqli_query($connect,"INSERT INTO `hosting_smtp`(`smtp_key`, `smtp_host`, `smtp_username`, `smtp_password`, `smtp_port`, `smtp_from`) VALUES ('SMTP','smtp.server.com','example@server.com','example123','587','example@server.com')");
