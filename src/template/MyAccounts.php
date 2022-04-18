@@ -41,12 +41,24 @@
 								</thead>
 								<tbody>
 									<?php
-									$sql = mysqli_query($connect, "SELECT * FROM `hosting_account` WHERE `account_for`= '".$ClientInfo['hosting_client_key']."' ORDER BY `account_id` DESC");
-									$Rows = mysqli_num_rows($sql);
-									$que = mysqli_query($connect, "SELECT * FROM `hosting_account` WHERE `account_for`= '".$ClientInfo['hosting_client_key']."' AND `account_status`= 1 ORDER BY `account_id` DESC");
-									$Active = mysqli_num_rows($que);
+									$sql = "SELECT * FROM `hosting_account` WHERE `account_for`= ? ORDER BY `account_id` DESC";
+									$stmt = $connect->prepare($sql);
+									$stmt -> bind_param("s", $ClientInfo['hosting_client_key']);
+									$stmt -> execute();
+									$result = $stmt->get_result();
+									$Rows = $result->num_rows;
+									$fetch = $result->fetch_assoc();
+									$stmt -> close();
+									$sql1 = "SELECT * FROM `hosting_account` WHERE `account_for`= ? AND `account_status`= ? ORDER BY `account_id` DESC";
+									$stmt = $connect->prepare($sql1);
+									$one = 1;
+									$stmt -> bind_param("si", $ClientInfo['hosting_client_key'], $one);
+									$stmt -> execute();
+									$result = $stmt->get_result();
+									$Active = $result->num_rows;
+									$stmt -> close();
 									if ($Rows > 0) {
-										while ($AccountInfo = mysqli_fetch_assoc($sql)) { ?>
+										while ($AccountInfo = $fetch) { ?>
 											<tr>
 												<td><?php echo $AccountInfo['account_username']; ?></a></td>
 												<td><?php echo $AccountInfo['account_label']; ?></td>
