@@ -40,9 +40,16 @@
 								</thead>
 								<tbody>
 									<?php
-									$sql = mysqli_query($connect,"SELECT * FROM `hosting_ssl` WHERE `ssl_for` = '".$ClientInfo['hosting_client_key']."' ORDER BY `ssl_id` DESC");
-									if (mysqli_num_rows($sql)) {
-										while ($SSLToken = mysqli_fetch_assoc($sql)) {
+									$sql = "SELECT * FROM `hosting_ssl` WHERE `ssl_for` = ? ORDER BY `ssl_id` DESC";
+									$stmt = $connect->prepare($sql);
+									$stmt -> bind_param("s", $ClientInfo['hosting_client_key']);
+									$stmt -> execute();
+									$result = $stmt->get_result();
+									$Rows = $result->num_rows;
+									$fetch = $result->fetch_assoc();
+									$stmt -> close();
+									if ($Rows>0) {
+										while ($SSLToken = $fetch) {
 											$apiClient = new GoGetSSLApi();
 											$token = $apiClient->auth($SSLApi['api_username'], $SSLApi['api_password']);
 											$SSLInfo = $apiClient->getOrderStatus($SSLToken['ssl_key']);
