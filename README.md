@@ -39,6 +39,9 @@ Please refer to the [official installation guide]() which covers all necessary i
 
 This project is licensed under the **GPL-3.0 License** License - see the `LICENSE.md` file for details
 
+## Sponsors
+[FatGrizzly](https://infinitzhost.com/?ref=mofhy)
+
 ## Acknowledgments
 
 * [Tabler UI Kit](https://github.com/tabler/tabler)
