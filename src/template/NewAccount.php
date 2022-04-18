@@ -101,7 +101,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="https://assets.mofhy.tk/js/jquery.min.js"></script>
+	<script src="https://cdn.mofhy.xyz/js/jquery.min.js"></script>
 	<script>
 		$('.domainTypeSwitch').change(function() {
 			$('#domainTypeInput').val(this.value);
