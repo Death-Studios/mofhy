@@ -24,6 +24,6 @@
     </div>
 </footer>
 </div>
-<script src="https://cdn.mofhy.xyz/js/tabler.min.js"></script>
+<script src="assets/js/tabler.min.js"></script>
 </body>
 </html>
