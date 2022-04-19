@@ -4,8 +4,8 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<h1 class="navbar-brand d-none-navbar-horizontal pe-0 pe-md-3" style="filter: brightness(0) invert(1);">
-			<a href="<?php echo "clients"; ?>">
-				<img src="https://cdn.mofhy.xyz/img/logo.svg" width="240" height="40" alt="MofhyLite" class="navbar-brand-image">
+			<a href="<?php echo "."; ?>">
+				<img src="assets/img/logo.svg" width="240" height="40" alt="MofhyLite" class="navbar-brand-image">
 			</a>
 		</h1>
 		<div class="navbar-nav flex-row order-md-last">
