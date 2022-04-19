@@ -11,8 +11,8 @@ if(file_exists('../installation/install.php'))
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <link rel="shortcut icon" href="https://cdn.mofhy.xyz/img/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <title><?php echo $PageInfo['title']; ?> | <?php echo $AreaInfo['area_name']; ?> Admin</title>
-  <link rel="stylesheet" href="https://cdn.mofhy.xyz/css/tabler.min.css">
+  <link rel="stylesheet" href="assets/css/tabler.min.css">
 </head>
 <body>
