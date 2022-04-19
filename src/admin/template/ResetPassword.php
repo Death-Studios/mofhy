@@ -1,8 +1,8 @@
 <div class="page page-center">
 	<div class="container-tight py-4">
 		<div class="text-center mb-2">
-			<a href="https://mofhy.tk">
-				<img src="https://assets.mofhy.tk/img/logo.svg" width="240" height="40" alt="<?php echo $AreaInfo['area_name']; ?>"></a>
+			<a href="https://mofhy.xyz">
+				<img src="assets/img/logo.svg" width="240" height="40" alt="<?php echo $AreaInfo['area_name']; ?>"></a>
 		</div>
 		<form class="card card-md" action="function/ResetPassword" method="post" onsubmit="
 					var password = document.getElementById('password').value;
