@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
 			header('location: ../install?step=1');
 		}
 		else{
-			$_SESSION['message'] = '<div class="alert alert-danger">Something is going all the way round.</div>';
+			$_SESSION['message'] = '<div class="alert alert-danger">Unable to insert tables in the database.</div>';
 			header('location: ../install');
 		}
 		
