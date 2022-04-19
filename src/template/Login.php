@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<div class="text-center text-muted mt-2">
-						Are you new here? Just <a href="/signup" tabindex="-1">Sign Up</a>!
+						Are you new here? Just <a href="signup" tabindex="-1">Sign Up</a>!
 					</div>
 				</div>
 		</form>
