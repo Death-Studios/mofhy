@@ -1,8 +1,8 @@
 <div class="page page-center">
   <div class="container-tight py-4">
     <div class="text-center mb-4">
-      <a href="/">
-        <img src="https://assets.mofhy.tk/img/logo.svg" height="50" alt="Mofhy Lite">
+      <a href="https://mofhy.xyz">
+        <img src="assets/img/logo.svg" height="50" alt="Mofhy Lite">
       </a>
     </div>
     <form class="card card-md" action="function/Signup" method="post" onsubmit="
