@@ -1,6 +1,6 @@
 # Mofhy
 
-Mofhy is an open-source MyOwnFreeHost client area for managing accounts and ssl certificates. It has easy to use features much like the WHMCS Digit UI interface. Visit the [offical website](https://mofhy.tk)!
+Mofhy is an open-source MyOwnFreeHost client area for managing accounts and ssl certificates. It has easy to use features much like the WHMCS Digit UI interface. Visit the [offical website](https://mofhy.xyz)!
 
 ## Features
 
@@ -14,7 +14,8 @@ Mofhy is an open-source MyOwnFreeHost client area for managing accounts and ssl 
 * [x] Standalone Setup
 * [x] SMTP Support
 * [x] Extra Tools For Clients
-* [x] Dark/Light Mode Switch
+* [x] Dark/Light Toggle
+* [x] Google Analytics
 
 ## Requirements
 
@@ -22,7 +23,7 @@ Mofhy is an open-source MyOwnFreeHost client area for managing accounts and ssl 
 * Min. MySQL v5.2
 * Configured SSL Certificate 
 
-> Your website most probably won't work if you do not have an SSL certificate. It will also affect reputation as a free hosting provider.
+> Your website most probably won't work if you do not have an SSL certificate. It will also affect your reputation as a free hosting provider.
 
 ## Installing
 
