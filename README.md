@@ -27,7 +27,7 @@ Mofhy is an open-source MyOwnFreeHost client area for managing accounts and ssl 
 
 ## Installing
 
-Please refer to the [official installation guide]() which covers all necessary inputs and explanations.
+Please refer to the [official installation guide](https://forum.mofhy.xyz/t/installing-mofhy/18) which covers all necessary inputs and explanations.
 
 ## Todo
 * [ ] Hosting Account Email Templates ![](https://img.shields.io/badge/Status-Pending-red)
