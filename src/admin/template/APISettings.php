@@ -181,6 +181,41 @@
 						</div>
 					</div>
 				</div>
+				<div class="col-12">
+					<div class="card" id="emailCard">
+						<div class="card-header">
+							<h3 class="card-title">Google Analytics</h3>
+							<a href="https://www.semrush.com/blog/google-analytics-tracking-id/#universal-analytics" class="ms-auto" target="_blank" rel="nofollow">Reference <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5"></path> <line x1="10" y1="14" x2="20" y2="4"></line> <polyline points="15 4 20 4 20 9"></polyline></svg></a>
+						</div>
+						<div class="card-body">
+							<form action="function/GoogleAnalytics" method="post">
+								<?php
+								$analytics_key = 'GTAG';
+								$sql = "SELECT * FROM `google_analytics` WHERE `analytics_key`= ? LIMIT 1";
+								$stmt = $connect->prepare($sql);
+								$stmt -> bind_param("s", $analytics_key);
+								$stmt -> execute();
+								$result = $stmt->get_result();
+								$GoogleAnalytics = $result->fetch_assoc();
+								$stmt -> close();
+								?>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="mb-10 px-10">
+											<label class="form-label required">Analytics Tracking ID</label>
+											<input type="text" name="analytics_tracking_id" value="<?php echo $GoogleAnalytics['analytics_tracking_id']; ?>" class="form-control" required>
+										</div>
+									</div>
+									<div class="col-md-12 mt-3">
+										<div class="mb-10 px-10">
+											<button type="submit" name="submit" class="btn btn-primary">Update Settings</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-12 mt-3"></div>
