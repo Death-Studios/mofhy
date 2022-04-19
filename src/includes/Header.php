@@ -2,6 +2,7 @@
 if (file_exists('installation/install.php')) {
   header('location: installation/');
 }
+require_once __DIR__.'/../handler/GoogleAnalytics.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,5 +14,16 @@ if (file_exists('installation/install.php')) {
   <link rel="shortcut icon" href="https://cdn.mofhy.xyz/img/favicon.svg" type="image/svg+xml">
   <title><?php echo $PageInfo['title']; ?> | <?php echo $AreaInfo['area_name']; ?></title>
   <link rel="stylesheet" href="https://cdn.mofhy.xyz/css/tabler.min.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $GoogleAnalytics['analytics_tracking_id'];?>"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', '<?php echo $GoogleAnalytics['analytics_tracking_id'];?>');
+  </script>
 </head>
 <body>
