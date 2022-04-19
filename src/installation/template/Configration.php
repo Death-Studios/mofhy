@@ -15,7 +15,7 @@
 <div class="page page-center">
 	<div class="container-tight py-4">
 		<div class="text-center mb-4">
-			<a href="https://mofhy.tk/" class="navbar-brand">
+			<a href="https://mofhy.xyz/" class="navbar-brand">
 				<img src="assets/img/logo.svg" height="40" width="240" alt="MofhyLite"></a>
 		</div>
 		<div class="card">
