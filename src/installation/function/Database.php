@@ -81,5 +81,5 @@ $sql = mysqli_query($connect,"INSERT INTO `hosting_smtp`(`smtp_key`, `smtp_host`
 $sql = mysqli_query($connect,"INSERT INTO `hosting_ssl_api`(`api_key`, `api_username`, `api_password`) VALUES ('FREESSL','example@gmail.com','SSL API Password')");
 $sql = mysqli_query($connect,"INSERT INTO `hosting_builder_api`(`builder_id`, `builder_username`, `builder_password`) VALUES ('SITEPRO','apikey0','API Password')");
 $sql = mysqli_query($connect,"INSERT INTO `hosting_domain_extensions`(`extension_value`) VALUES ('.example.com')");
-$sql = mysqli_query($connect,"INSERT INTO `google_analytics`(`analytics_key	`, `analytics_tracking_id`) VALUES ('GTAG', 'UA-54516992-1')");
+$sql = mysqli_query($connect,"INSERT INTO `google_analytics`(`analytics_key`, `analytics_tracking_id`) VALUES ('GTAG', 'UA-54516992-1')");
 ?>
