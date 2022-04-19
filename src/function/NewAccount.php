@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
 				$stmt = $connect->prepare($sql);
 				$one  = '1'; 
 				$sqlserver = 'x';
-				$stmt -> bind_param("ssssssssss", $Result['username'], $password, $username, $Result['domain'], $one, $Result['date'], $ClientInfo['hosting_client_key'], $sqlserver, $label);
+				$stmt -> bind_param("sssssssss", $Result['username'], $password, $username, $Result['domain'], $one, $Result['date'], $ClientInfo['hosting_client_key'], $sqlserver, $label);
 				$trigger = $stmt -> execute();
 				$error = $stmt->error;
 				$stmt -> close();
