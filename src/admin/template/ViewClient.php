@@ -43,7 +43,8 @@
 														$stmt = $connect->prepare($sql);
 														$stmt -> bind_param("s", $ClientInfo['hosting_client_key']);
 														$stmt -> execute();
-														$rows = $stmt->get_result()->num_rows;
+														$result = $connect->get_result();
+														$rows = $result->num_rows;
 														$stmt -> close();
 														echo $rows;
 														?>
@@ -57,7 +58,8 @@
 														$stmt = $connect->prepare($sql);
 														$stmt -> bind_param("s", $ClientInfo['hosting_client_key']);
 														$stmt -> execute();
-														$sslrows = $stmt->get_result()->num_rows;
+														$result1 = $connect->get_result();
+														$sslrows = $result1->num_rows;
 														$stmt -> close();
 														echo $sslrows;
 														?>
