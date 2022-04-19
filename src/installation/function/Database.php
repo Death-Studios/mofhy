@@ -45,6 +45,10 @@ $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `hosting_domain_extensi
   `extension_id` INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `extension_value` VARCHAR(70) NOT NULL
 )');
+$sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `google_analytics` (
+  `analytics_key` VARCHAR(4) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `analytics_tracking_id` TEXT NOT NULL
+)');
 $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `hosting_smtp` (
   `smtp_key` VARCHAR(4) NOT NULL,
   `smtp_host` VARCHAR(50) NOT NULL,
@@ -77,4 +81,5 @@ $sql = mysqli_query($connect,"INSERT INTO `hosting_smtp`(`smtp_key`, `smtp_host`
 $sql = mysqli_query($connect,"INSERT INTO `hosting_ssl_api`(`api_key`, `api_username`, `api_password`) VALUES ('FREESSL','example@gmail.com','SSL API Password')");
 $sql = mysqli_query($connect,"INSERT INTO `hosting_builder_api`(`builder_id`, `builder_username`, `builder_password`) VALUES ('SITEPRO','apikey0','API Password')");
 $sql = mysqli_query($connect,"INSERT INTO `hosting_domain_extensions`(`extension_value`) VALUES ('.example.com')");
+$sql = mysqli_query($connect,"INSERT INTO `google_analytics`(`analytics_key	`, `analytics_tracking_id`) VALUES ('GTAG', 'UA-54516992-1')");
 ?>
