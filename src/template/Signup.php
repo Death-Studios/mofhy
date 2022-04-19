@@ -52,7 +52,7 @@
           <button type="submit" class="btn btn-primary w-100" name="signup">Create New Account</button>
         </div>
         <div class="text-center text-muted mt-3">
-          Already a member? <a href="login.php" tabindex="-1">Login</a>
+          Already a member? <a href="login" tabindex="-1">Login</a>
         </div>
       </div>
     </form>
