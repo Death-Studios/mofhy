@@ -1,8 +1,8 @@
 <div class="flex-fill d-flex flex-column justify-content-center py-4">
 	<div class="container-tight py-4">
 		<div class="text-center mb-4">
-			<a href="https://mofhy.tk">
-				<img src="https://assets.mofhy.tk/img/logo.svg" height="40" width="240" alt="Mofhy Lite">
+			<a href="https://mofhy.xyz">
+				<img src="assets/img/logo.svg" height="40" width="240" alt="Mofhy Lite">
 			</a>
 		</div>
 		<div class="card card-md">
