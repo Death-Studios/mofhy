@@ -1,9 +1,9 @@
 <?php
 $AccountInfo = $fetch;
-if ($AccountInfo['account_status'] !== '1') {
-    header('Location: viewAccount.php?account_id=' . $_GET['account_id'] . '');
+$account_id = $_GET['account_id'];
+if ($AccountInfo['account_status'] == '0' || $AccountInfo['account_status'] == '2') {
+    header('Location: viewAccount.php?account_id='.$account_id.'');
 }
-$account_id = htmlspecialchars($_GET['account_id']);
 ?>
 <div class="page-wrapper">
     <div class="container-xl">
@@ -137,3 +137,4 @@ $account_id = htmlspecialchars($_GET['account_id']);
             }
         }
         ?>
+        
