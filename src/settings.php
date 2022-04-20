@@ -13,11 +13,12 @@ if(isset($_GET['account_id'])){
 	$stmt = $connect->prepare($sql);
 	$stmt -> bind_param("ss", $account_id, $ClientInfo['hosting_client_key']);
 	$stmt -> execute();
-	$rows = $stmt->get_result()->num_rows;
-	$fetch = $stmt->get_result()->fetch_assoc();
+	$result = $stmt->get_result();
+	$rows = $result->num_rows;
+	$fetch = $result->fetch_assoc();
 	$stmt -> close();
 	if($rows>0){
-		require_once __DIR__.'/includes/Navbar.php';
+		require_once __DIR__.'/includes/NavbarTrue.php';
 		include __DIR__.'/template/AccountSettings.php';
 		require_once __DIR__.'/includes/Footer.php';
 	}
