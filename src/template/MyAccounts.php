@@ -47,18 +47,14 @@
 									$stmt -> execute();
 									$result = $stmt->get_result();
 									$Rows = $result->num_rows;
-									$fetch = $result->fetch_assoc();
-									$stmt -> close();
-									$sql1 = "SELECT * FROM `hosting_account` WHERE `account_for`= ? AND `account_status`= ? ORDER BY `account_id` DESC";
-									$stmt = $connect->prepare($sql1);
-									$one = 1;
-									$stmt -> bind_param("si", $ClientInfo['hosting_client_key'], $one);
-									$stmt -> execute();
-									$result = $stmt->get_result();
-									$Active = $result->num_rows;
-									$stmt -> close();
+									$sql1 = "SELECT `account_id` FROM `hosting_account` WHERE `account_for`= ? AND `account_status`= 1";
+									$stmt1 = $connect->prepare($sql1);
+									$stmt1 -> bind_param("s", $ClientInfo['hosting_client_key']);
+									$stmt1 -> execute();
+									$result1 = $stmt1->get_result();
+									$Active = $result1->num_rows;
 									if ($Rows > 0) {
-										while ($AccountInfo = $fetch) { ?>
+										while ($AccountInfo = $result->fetch_assoc()) { ?>
 											<tr>
 												<td><?php echo $AccountInfo['account_username']; ?></a></td>
 												<td><?php echo $AccountInfo['account_label']; ?></td>
@@ -90,7 +86,10 @@
 										<tr>
 											<td colspan="6" class="text-center">No accounts yet, want to create one?</td>
 										</tr>
-									<?php } ?>
+									<?php } 
+									$stmt1 -> close();
+									$stmt -> close();
+									?>
 								</tbody>
 							</table>
 						</div>
