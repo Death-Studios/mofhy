@@ -1,5 +1,6 @@
 <?php
 require __DIR__.'/Connect.php';
+require __DIR__.'/CryptoLib.php';
 require_once __DIR__.'/../handler/AreaHandler.php';
 if(isset($_POST['signup'])){
 	$FormData = array(
@@ -9,7 +10,8 @@ if(isset($_POST['signup'])){
 		'password' => hash('sha256', $_POST['password']),
 		'date' => date('d-m-Y'),
 		'key' => substr(str_shuffle('qwertyuioplkjhgfdsazxcvbnm012345789QWERTYUIOPLKJHGFDSAZXCVBNM'), 0, 8),
-		'verification' => hash("ripemd128", $_POST['email'])
+		'verification' => hash("ripemd128", $_POST['email']),
+		'cookie' => $string = \IcyApril\CryptoLib::randomString(32)
 	);
 	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_email`= ? OR `hosting_client_key`= ?";
 	$stmt = $connect->prepare($sql);
@@ -25,9 +27,9 @@ if(isset($_POST['signup'])){
 	}
 	else{
 	    $zero = 0;
-		$sql = "INSERT INTO `hosting_clients`(`hosting_client_fname`, `hosting_client_lname`, `hosting_client_email`, `hosting_client_key`, `hosting_client_date`, `hosting_client_status`, `hosting_client_password`, `hosting_client_verification`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO `hosting_clients`(`hosting_client_fname`, `hosting_client_lname`, `hosting_client_email`, `hosting_client_key`, `hosting_client_date`, `hosting_client_status`, `hosting_client_password`, `hosting_client_verification`, `hosting_client_cookie`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$stmt = $connect->prepare($sql);
-		$stmt -> bind_param("sssssiss", $FormData['fname'], $FormData['lname'], $FormData['email'], $FormData['key'], $FormData['date'], $zero, $FormData['password'], $FormData['verification']);
+		$stmt -> bind_param("sssssisss", $FormData['fname'], $FormData['lname'], $FormData['email'], $FormData['key'], $FormData['date'], $zero, $FormData['password'], $FormData['verification'],$FormData['cookie'] );
 		$trigger = $stmt -> execute();
 		$error = $stmt->error;
 		$stmt -> close();
