@@ -16,7 +16,7 @@ if(isset($_GET['ssl_id'])){
 	$fetch = $result->fetch_assoc();
 	$stmt -> close();
 	if($rows>0){
-		require_once __DIR__.'/includes/Navbar.php';
+		require_once __DIR__.'/includes/NavbarTrue.php';
 		include __DIR__.'/template/ViewSSL.php';
 		require_once __DIR__.'/includes/Footer.php';
 	}
