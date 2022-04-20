@@ -24,7 +24,7 @@
 				}
 				?>
 			<div class="row row-cards">
-				<div class="col-md-8">
+				<div class="col-md-12">
 					<div class="card">
 						<div class="table-responsive">
 							<table class="table table-vcenter text-nowrap card-table">
@@ -94,17 +94,6 @@
 						</div>
 						<div class="card-footer d-flex"> <a href="newSSL" class="btn btn-primary m-0"> New SSL Certificate </a>
 							<div class="m-0 ms-auto"> </div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="card-title">Don't like manual installation?</h3>
-						</div>
-						<div class="card-body">
-							<p> iFastNet's Premium Hosting integrates Let's Encrypt directly into the cPanel control panel, so your free SSL certificates can be created, installed and renewed fully automatically! </p>
-							<p> Learn more about this and the other benefits of Premium Hosting from iFastNet! </p> <a href="https://ifastnet.com/" target="_blank" rel="nofollow" class="btn btn-success" onclick="ga('send', 'event', 'premium', 'click', 'acme-ssl-automatic')"> Learn More </a>
 						</div>
 					</div>
 				</div>
