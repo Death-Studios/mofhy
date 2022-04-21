@@ -124,7 +124,7 @@ if ($AccountInfo['account_status'] == '0' || $AccountInfo['account_status'] == '
             $label = $_POST['label'];
             $sql      = "UPDATE `hosting_account` SET `account_label`= ? WHERE `account_username`= ?";
             $stmt = $connect->prepare($sql);
-            $stmt->bind_param("sss", $label, $username, $ss);
+            $stmt->bind_param("ss", $label, $username);
             $trigger = $stmt->execute();
             $error = $stmt->error;
             $stmt->close();
@@ -137,4 +137,3 @@ if ($AccountInfo['account_status'] == '0' || $AccountInfo['account_status'] == '
             }
         }
         ?>
-        
