@@ -1,6 +1,6 @@
 <?php
 $AccountInfo = $fetch;
-$account_id = $_GET['account_id'];
+$account_id = htmlspecialchars($_GET['account_id']);
 if ($AccountInfo['account_status'] == '0' || $AccountInfo['account_status'] == '2') {
     header('Location: viewAccount.php?account_id='.$account_id.'');
 }
