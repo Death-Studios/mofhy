@@ -21,7 +21,7 @@
 						<div class="card-body">
 							<div class="row row-0">
 								<div class="col-md-3">
-									<img src="<?php echo get_gravatar($ClientInfo['hosting_client_email'], 190); ?>" alt="<?php echo $ClientInfo['hosting_client_fname'] . " " . $ClientInfo['hosting_client_lname'] . "'s Avatar"; ?>">
+									<img src="<?php echo get_gravatar($ClientInfo['hosting_client_email'], 150); ?>" alt="<?php echo $ClientInfo['hosting_client_fname'] . " " . $ClientInfo['hosting_client_lname'] . "'s Avatar"; ?>">
 								</div>
 								<div class="col-md-9">
 									<div class="table-responsive">
@@ -43,25 +43,10 @@
 														$stmt = $connect->prepare($sql);
 														$stmt -> bind_param("s", $ClientInfo['hosting_client_key']);
 														$stmt -> execute();
-														$result = $connect->get_result();
+														$result = $stmt->get_result();
 														$rows = $result->num_rows;
 														$stmt -> close();
 														echo $rows;
-														?>
-													</td>
-												</tr>
-												<tr>
-													<td><strong>SSL Certificates</strong></td>
-													<td>
-														<?php 
-														$sql = mysqli_query($connect, "SELECT `ssl_id` FROM `hosting_ssl` WHERE `ssl_for` = ?");
-														$stmt = $connect->prepare($sql);
-														$stmt -> bind_param("s", $ClientInfo['hosting_client_key']);
-														$stmt -> execute();
-														$result1 = $connect->get_result();
-														$sslrows = $result1->num_rows;
-														$stmt -> close();
-														echo $sslrows;
 														?>
 													</td>
 												</tr>
