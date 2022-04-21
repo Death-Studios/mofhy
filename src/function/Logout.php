@@ -1,5 +1,6 @@
 <?php
 require __DIR__.'/Connect.php';
+require __DIR__.'/CryptoLib.php';
 if(isset($_COOKIE['LEFSESS'])){
 	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_cookie` = ?";
 	$stmt = $connect->prepare($sql);
@@ -8,10 +9,10 @@ if(isset($_COOKIE['LEFSESS'])){
 	$result = $stmt->get_result();
 	$fetch = $result->fetch_assoc();
 	$stmt -> close();
-	$null = NULL;
-	$sql = "UPDATE `hosting_clients` SET `hosting_client_cookie` = ? WHERE `hosting_client_email` = ?";
-	$stmt = $connect->prepare($sql);
-	$stmt -> bind_param("ss", $null, $fetch['hosting_client_email']);
+	$string = \IcyApril\CryptoLib::randomString(32);
+	$sql1 = "UPDATE `hosting_clients` SET `hosting_client_cookie` = ? WHERE `hosting_client_email` = ?";
+	$stmt = $connect->prepare($sql1);
+	$stmt -> bind_param("ss", $string, $fetch['hosting_client_email']);
 	$trigger = $stmt->execute();
 	$stmt -> close();
 	if($trigger !== false){
