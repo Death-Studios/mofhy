@@ -9,14 +9,18 @@
 			</a>
 		</h1>
 		<div class="navbar-nav flex-row order-md-last">
-			<?php if(strpos($_SERVER['REQUEST_URI'], "viewCertificate") || strpos($_SERVER['REQUEST_URI'], "viewclient") || strpos($_SERVER['REQUEST_URI'], "viewAccount") !== true){?>
-				<a href="?theme=dark" class="nav-link px-0 hide-theme-dark" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable dark mode">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path></svg>
-				</a>
-				<a href="?theme=light" class="nav-link px-0 hide-theme-light" title="" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Enable light mode">
-					<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="12" cy="12" r="4"></circle><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path></svg>
-				</a>
-			<?php }?>
+			<?php
+			$getData = json_decode(file_get_contents("https://api.mofhy.xyz/update/latest.json"), true);
+			$v_mofhy = get_mofhy_version();
+			if($v_mofhy == $getData['latest_version']){ ?>
+			<div class="nav-link px-0" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="No Updates Available">
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shield-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <path d="M9 12l2 2l4 -4"></path> <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"></path></svg>
+			</div>
+			<?php } else{ ?>
+			<div class="nav-link px-0" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-original-title="Updates Available">
+				<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-alert-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <circle cx="12" cy="12" r="9"></circle> <line x1="12" y1="8" x2="12" y2="12"></line> <line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+			</div>
+			<?php } ?>
 			<div class="nav-item dropdown">
 				<?php
 				function get_gravatar($email, $s = 80, $d = 'mp', $r = 'g', $img = false, $atts = array())
