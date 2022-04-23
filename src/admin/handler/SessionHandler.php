@@ -1,8 +1,7 @@
 <?php
-if (isset($_SESSION['LEASESS']))
-{
-    $cookie = base64_decode($_SESSION['LEASESS']);
-    $sql = "SELECT * FROM `hosting_admin` WHERE `admin_email`= ?";
+if(isset($_COOKIE['LEASESS'])){
+    $cookie = base64_decode($_COOKIE['LEASESS']);
+    $sql = "SELECT * FROM `hosting_admin` WHERE `admin_hash`= ?";
     $stmt = $connect->prepare($sql);
 	$stmt -> bind_param("s", $cookie);
 	$stmt -> execute();
@@ -16,7 +15,7 @@ if (isset($_SESSION['LEASESS']))
     }
     else
     {
-        unset($_SESSION['LEASESS']);
+        setcookie('LEFSESS', 'NULL' , -1, "/");
         $_SESSION['message'] = '<div class="alert alert-danger">Your previous session has expired.</div>';
         header('location: login');
         exit;
