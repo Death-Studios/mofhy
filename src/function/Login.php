@@ -17,14 +17,14 @@ if(isset($_POST['login'])){
 	$stmt->close();
 	if($rows>0){
 		if($fetch['hosting_client_password'] == $FormData['password']){
-			$string = \IcyApril\CryptoLib::randomString(32);
-			$sql1 = "UPDATE `hosting_clients` SET `hosting_client_cookie` = ? WHERE `hosting_client_email` = ?";
+			$string = \IcyApril\CryptoLib::randomString(64);
+			$sql1 = "UPDATE `hosting_clients` SET `hosting_client_hash` = ? WHERE `hosting_client_email` = ?";
 			$stmt = $connect->prepare($sql1);
 			$stmt -> bind_param("ss", $string, $fetch['hosting_client_email']);
 			$trigger = $stmt -> execute();
 			$stmt -> close();
 			if($trigger !== false){
-				setcookie('LEFSESS', $string, time()+86000, '/');
+				setcookie('LEFSESS', $string, time()+3600, '/');
 				header('location: ../');
 			} else{
 				$_SESSION['message'] = $FormData['error_msg'];
