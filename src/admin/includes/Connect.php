@@ -17,6 +17,6 @@ if (!isset($connect))
 // Get MOFHY Version
 function get_mofhy_version()
 {
-    return '2.0.1';
+    return '2.0.2';
 }
 ?>
