@@ -33,15 +33,15 @@ Please refer to the [official installation guide](https://forum.mofhy.xyz/t/inst
 * [ ] Update Doc Links ![](https://img.shields.io/badge/Status-Pending-red)
 ## Authors
 [@jaikt](https://github.com/jaikt)  
-[@greenreader9](https://github.com/greenreader9)  
 [@mahtab2003](https://github.com/mahtab2003)
+[@greenreader9](https://github.com/greenreader9)  
 
 ## License
 
 This project is licensed under the **GPL-3.0 License** License - see the `LICENSE.md` file for details
 
 ## Sponsors
-[Shadoxyve](https://github.com/Shadoxyve)
+[Shadoxyve](https://github.com/Shadoxyve)  
 [FatGrizzly](https://github.com/FatGrizzly)
 
 ## Acknowledgments
