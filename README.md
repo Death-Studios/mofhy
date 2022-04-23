@@ -32,8 +32,8 @@ Please refer to the [official installation guide](https://forum.mofhy.xyz/t/inst
 ## Todo
 * [ ] Update Doc Links ![](https://img.shields.io/badge/Status-Pending-red)
 ## Authors
-[@greenreader9](https://github.com/greenreader9)
 [@jaikt](https://github.com/jaikt)  
+[@greenreader9](https://github.com/greenreader9)  
 [@mahtab2003](https://github.com/mahtab2003)
 
 ## License
