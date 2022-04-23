@@ -38,7 +38,7 @@ $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `hosting_clients` (
   `hosting_client_status` INT(1) NOT NULL,
   `hosting_client_password` VARCHAR(64) NOT NULL,
   `hosting_client_verification` VARCHAR(255) NOT NULL,
-  `hosting_client_cookie` VARCHAR(32) NOT NULL
+  `hosting_client_hash` TEXT NOT NULL
 
 )');
 $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `hosting_domain_extensions` (
@@ -70,7 +70,8 @@ $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `hosting_admin` (
   `admin_lname` varchar(30) NOT NULL,
   `admin_email` varchar(50) NOT NULL,
   `admin_key` VARCHAR(8) NOT NULL,
-  `admin_password` varchar(70) NOT NULL
+  `admin_password` varchar(70) NOT NULL,
+  `admin_hash` TEXT NOT NULL
 )');
 $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `google_analytics` (
   `analytics_key` VARCHAR(4) NOT NULL,
@@ -79,7 +80,6 @@ $sql = mysqli_query($connect,'CREATE TABLE IF NOT EXISTS `google_analytics` (
 $sql = mysqli_query($connect,"INSERT INTO `hosting_account_api`(`api_key`, `api_username`, `api_password`, `api_cpanel_url`, `api_server_ip`, `api_ns_1`, `api_ns_2`, `api_package`) VALUES ('MOFHAPI','MOFH API Username','MOFH API Password','cpanel.example.com','185.27.134.46','ns1.byet.org','ns2.byet.org','freehosting')");
 $sql = mysqli_query($connect,"INSERT INTO `hosting_smtp`(`smtp_key`, `smtp_host`, `smtp_username`, `smtp_password`, `smtp_port`, `smtp_from`) VALUES ('SMTP','smtp.server.com','example@server.com','example123','587','example@server.com')");
 $sql = mysqli_query($connect,"INSERT INTO `hosting_ssl_api`(`api_key`, `api_username`, `api_password`) VALUES ('FREESSL','example@gmail.com','SSL API Password')");
-$sql = mysqli_query($connect,"INSERT INTO `hosting_builder_api`(`builder_id`, `builder_username`, `builder_password`) VALUES ('SITEPRO','apikey0','API Password')");
 $sql = mysqli_query($connect,"INSERT INTO `hosting_domain_extensions`(`extension_value`) VALUES ('.example.com')");
 $sql = mysqli_query($connect,"INSERT INTO `google_analytics`(`analytics_key`, `analytics_tracking_id`) VALUES ('GTAG', 'UA-54516992-1')");
 ?>
