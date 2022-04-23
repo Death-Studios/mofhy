@@ -10,9 +10,9 @@ if(isset($_POST['submit'])){
 	'area_key' => 'AREA'
 	);
 	$stmt = $connect->prepare("UPDATE `hosting_area` SET `area_name`= ?, `area_url`= ?,`area_email`= ?, `area_status`= ? WHERE `area_key`= ?");
-	$stmt->bind_param('sssss', $FormData['area_name'], $FormData['area_url'], $FormData['area_email'], $FormData['area_status'], $FormData['areay_key']);
+	$stmt->bind_param('sssss', $FormData['area_name'], $FormData['area_url'], $FormData['area_email'], $FormData['area_status'], $FormData['area_key']);
 	$trigger = $stmt->execute();
-	if($trigger !== false){
+	if($trigger != false){
 		$_SESSION['message'] = '<div class="alert alert-success" role="alert"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-circle-check alert-icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path stroke="none" d="M0 0h24v24H0z" fill="none"></path> <circle cx="12" cy="12" r="9"></circle> <path d="M9 12l2 2l4 -4"></path></svg>&nbsp;The new clientarea settings have been updated successfully!</div>';
 		header('location: ../profileSettings');
 	}
