@@ -14,7 +14,9 @@ if(isset($_POST['submit'])){
 	$sql = "INSERT INTO `hosting_area` (`area_key`,`area_name`,`area_url`,`area_email`,`area_status`) VALUES (?, ?, ?, ?, ?)";
 	$stmt = $connect->prepare($sql);
 	$stmt->bind_param("sssss", $FormData['area_key'], $FormData['area_name'], $FormData['area_url'], $FormData['area_email'], $FormData['area_status']);
-	if($stmt->execute()){
+	$trigger = $stmt->execute();
+	$stmt->close();
+	if($trigger !== false){
 		$_SESSION['message'] = '<div class="alert alert-success">Information has been updated successfully.</div>';
 		header('location: ../install?step=2');
 	}
@@ -23,6 +25,4 @@ if(isset($_POST['submit'])){
 		header('location: ../install?step=1');
 	}
 }
-$stmt->close();
-$connect->close();
 ?>
