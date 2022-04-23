@@ -1,8 +1,8 @@
 <?php
 ob_start();
 session_start();
-if(isset($_SESSION['LEASESS'])){
-	unset($_SESSION['LEASESS']);
+if(isset($_COOKIE['LEASESS'])){
+	setcookie('LEFSESS', 'NULL' , -1, '/');
 	$_SESSION['message'] = '<div class="alert alert-success" role="alert">Your session has been cleared.</div>';
 	header('location: login');
 }
