@@ -10,7 +10,7 @@ if(isset($_COOKIE['LEFSESS'])){
 	$fetch = $result->fetch_assoc();
 	$stmt -> close();
 	$string = \IcyApril\CryptoLib::randomString(32);
-	$sql1 = "UPDATE `hosting_clients` SET `hosting_client_cookie` = ? WHERE `hosting_client_email` = ?";
+	$sql1 = "UPDATE `hosting_clients` SET `hosting_client_hash` = ? WHERE `hosting_client_email` = ?";
 	$stmt = $connect->prepare($sql1);
 	$stmt -> bind_param("ss", $string, $fetch['hosting_client_email']);
 	$trigger = $stmt->execute();
