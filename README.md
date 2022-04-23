@@ -30,9 +30,9 @@ Mofhy is an open-source MyOwnFreeHost client area for managing accounts and ssl 
 Please refer to the [official installation guide](https://forum.mofhy.xyz/t/installing-mofhy/18) which covers all necessary inputs and explanations.
 
 ## Todo
-* [x] Hosting Account Email Templates ![](https://img.shields.io/badge/Status-Finished-green)
 * [ ] Update Doc Links ![](https://img.shields.io/badge/Status-Pending-red)
 ## Authors
+[@greenreader9](https://github.com/greenreader9)
 [@jaikt](https://github.com/jaikt)  
 [@mahtab2003](https://github.com/mahtab2003)
 
@@ -41,7 +41,8 @@ Please refer to the [official installation guide](https://forum.mofhy.xyz/t/inst
 This project is licensed under the **GPL-3.0 License** License - see the `LICENSE.md` file for details
 
 ## Sponsors
-[FatGrizzly](https://infinitzhost.com/?ref=mofhy)
+[Shadoxyve](https://github.com/Shadoxyve)
+[FatGrizzly](https://github.com/FatGrizzly)
 
 ## Acknowledgments
 
