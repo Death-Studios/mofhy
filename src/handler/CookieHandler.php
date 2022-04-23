@@ -1,7 +1,7 @@
 <?php
 if(isset($_COOKIE['LEFSESS'])){
 	$string = $_COOKIE['LEFSESS'];
-	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_cookie`= ?";
+	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_hash`= ?";
 	$stmt = $connect->prepare($sql);
 	$stmt -> bind_param("s", $string);
 	$stmt -> execute();
@@ -13,7 +13,7 @@ if(isset($_COOKIE['LEFSESS'])){
 		$ClientInfo = $fetch;
 	}
 	else{
-		setcookie('LEFSESS',NULL,-1,'/');
+		setcookie('LEFSESS', NULL, -1, '/');
 		$_SESSION['message'] = '<div class="alert alert-danger">Your session has been expired.</div>';
 		header('location: login');
 	}
