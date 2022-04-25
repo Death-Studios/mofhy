@@ -27,9 +27,9 @@ if(isset($_POST['signup'])){
 	}
 	else{
 	    $zero = 0;
-		$sql = "INSERT INTO `hosting_clients`(`hosting_client_fname`, `hosting_client_lname`, `hosting_client_email`, `hosting_client_key`, `hosting_client_date`, `hosting_client_status`, `hosting_client_password`, `hosting_client_verification`, `hosting_client_cookie`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO `hosting_clients`(`hosting_client_fname`, `hosting_client_lname`, `hosting_client_email`, `hosting_client_key`, `hosting_client_date`, `hosting_client_status`, `hosting_client_password`, `hosting_client_verification`, `hosting_client_hash`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$stmt = $connect->prepare($sql);
-		$stmt -> bind_param("sssssisss", $FormData['fname'], $FormData['lname'], $FormData['email'], $FormData['key'], $FormData['date'], $zero, $FormData['password'], $FormData['verification'],$FormData['cookie'] );
+		$stmt -> bind_param("sssssisss", $FormData['fname'], $FormData['lname'], $FormData['email'], $FormData['key'], $FormData['date'], $zero, $FormData['password'], $FormData['verification'], $FormData['cookie']);
 		$trigger = $stmt -> execute();
 		$error = $stmt->error;
 		$stmt -> close();
