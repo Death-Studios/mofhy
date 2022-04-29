@@ -2,7 +2,7 @@
 require __DIR__.'/Connect.php';
 require __DIR__.'/CryptoLib.php';
 if(isset($_COOKIE['LEFSESS'])){
-	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_cookie` = ?";
+	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_hash` = ?";
 	$stmt = $connect->prepare($sql);
 	$stmt -> bind_param("s", $_COOKIE['LEFSESS']);
 	$stmt->execute();
