@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
 	$stmt->close();
 	if($trigger !== false){
 		if($FormData['admin_password'] == $AdminCreds['admin_password']){
-			setcookie('LEASESS', base64_encode($AdminCreds['admin_hash']), time() + (86400 * 30), "/");
+			$_SESSION['LEASESS'] = base64_encode($AdminCreds['admin_hash']);
 			header('location: ../clients');
 		} 
 		else{
