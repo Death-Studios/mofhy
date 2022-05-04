@@ -1,5 +1,5 @@
 <?php
-if(isset($_COOKIE['LEASESS'])){
+if(isset($_SESSION['LEASESS'])){
     $cookie = base64_decode($_SESSION['LEASESS']);
     $sql = "SELECT * FROM `hosting_admin` WHERE `admin_hash`= ?";
     $stmt = $connect->prepare($sql);
