@@ -3,7 +3,7 @@
 		<div class="card card-md">
 			<div class="card-body">
 				<h2 class="card-title text-center mb-4">Redirecting to Control Panel ...</h2>
-				<form action="https://<?php echo $HostingApi['api_cpanel_url'] ?>/login.php" method="post" autocomplete="off" id="auth-form">
+				<form action="<?php echo $HostingApi['api_cpanel_url'] ?>/login.php" method="post" autocomplete="off" id="auth-form">
 					<input type="hidden" name="uname" value="<?php echo $AccountInfo['account_username']; ?>" alt="username">
 					<input type="hidden" name="passwd" value="<?php echo $AccountInfo['account_password']; ?>" alt="password">
 					<button class="btn btn-primary w-100">
