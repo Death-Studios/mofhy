@@ -14,10 +14,10 @@ if(isset($_GET['account_id'])){
 	$stmt->execute();
 	$stmt_result = $stmt->get_result();
 	$AccountInfo = $stmt_result->fetch_assoc();
+	$stmt->close();
 	if($stmt_result->num_rows>0){
 		require_once __DIR__.'/includes/Navbar.php';
 		include __DIR__.'/template/cPLogin.php';
-		require_once __DIR__.'/includes/Footer.php';
 	}
 	else{
 		include __DIR__.'/template/503.php';
@@ -31,5 +31,4 @@ else{
 	require_once __DIR__.'/includes/CookieHandler.php';
 	include __DIR__.'/template/503.php';
 }
-$stmt->close();
 ?>
