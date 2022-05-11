@@ -1,6 +1,7 @@
 <?php
 require __DIR__.'/Connect.php';
 include __DIR__.'/../handler/AreaHandler.php';
+include __DIR__.'/../handler/CookieHandler.php';
 if(isset($_POST['reset'])){
 	$email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 	$sql = "SELECT * FROM `hosting_clients` WHERE `hosting_client_email`= ?";
