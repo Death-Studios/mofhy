@@ -6,9 +6,9 @@ if(isset($_POST['reset'])){
 		'email' => filter_var(hex2bin($_POST['email']), FILTER_VALIDATE_EMAIL),
 		'hashed_password' => hash('sha256', $_POST['password'])
 	);
-	$sql = "UPDATE `hosting_clients` SET `hosting_client_password`= ? WHERE `hosting_client_key`= ?";
+	$sql = "UPDATE `hosting_clients` SET `hosting_client_password`= ? WHERE `hosting_client_email`= ?";
 	$stmt = $connect->prepare($sql);
-	$stmt -> bind_param("ss", $FormData['hashed_password'], $Data['hosting_client_key']);
+	$stmt -> bind_param("ss", $FormData['hashed_password'], $FormData['email']);
 	$trigger = $stmt -> execute();
 	$stmt -> close();
 	if($trigger !== false){
